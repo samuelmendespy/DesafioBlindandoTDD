@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 using calculadora;
 
@@ -73,6 +74,24 @@ public class UnitTest1
        // Assert
        Assert.Throws<DivideByZeroException>(
         () => _calc.Dividir(3,0));
+
+    }
+
+    [Fact]
+    public void Historico_InserindoStrings_DeveRetornarUltimas3Strings()
+    {
+        // Act
+        List<string> resultadoAtual = _calc.Historico();
+
+        _calc.Somar(1, 2);
+        _calc.Somar(3, 5);
+        _calc.Somar(1, 6);
+        _calc.Somar(2, 7);
+
+
+       // Assert
+       Assert.NotEmpty(resultadoAtual);
+       Assert.Equal(3, resultadoAtual.Count);
 
     }
 }

@@ -29,6 +29,11 @@ namespace calculadora
         {
             return 0.00;
         }
+
+        public List<string> Historico()
+        {
+            return new List<string>();
+        }
         
     }   
 }
