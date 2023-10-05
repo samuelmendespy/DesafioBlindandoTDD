@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using calculadora;
 
 namespace testes;
@@ -5,9 +6,6 @@ namespace testes;
 public class UnitTest1
 {
     private Calculadora _calc;
-    private int num1;
-    private int num2;
-
     public UnitTest1()
     {
         _calc = new Calculadora();
@@ -15,17 +13,66 @@ public class UnitTest1
 
     [Theory]
     [InlineData(1, 2, 3)]
+    [InlineData(4, 5, 9)]
     public void Somar_InserindoNum1Num2_DeveRetornarSomaDeNum1ComNum2(int num1, int num2, int resultadoEsperado)
     {
-        // Arrange
-        // num1 = 1;
-        // num2 = 2;
-
         // Act
        int resultadoAtual = _calc.Somar(num1,num2);
 
        // Assert
        Assert.Equal(resultadoEsperado, resultadoAtual);
+
+    }
+
+    [Theory]
+    [InlineData(6, 2, 4)]
+    [InlineData(5, 3, 2)]
+    public void Subtrair_InserindoNum1Num2_DeveRetornarDiferencaDeNum1ENum2(int num1, int num2, int resultadoEsperado)
+    {
+        // Act
+       int resultadoAtual = _calc.Subtrair(num1,num2);
+
+       // Assert
+       Assert.Equal(resultadoEsperado, resultadoAtual);
+
+    }
+
+    [Theory]
+    [InlineData(1, 2, 2)]
+    [InlineData(4, 5, 20)]
+    public void Multiplicar_InserindoNum1Num2_DeveRetornarProdutoDeNum1ENum2(int num1, int num2, int resultadoEsperado)
+    {
+        // Act
+       int resultadoAtual = _calc.Multiplicar(num1,num2);
+
+       // Assert
+       Assert.Equal(resultadoEsperado, resultadoAtual);
+
+    }
+
+    [Theory]
+    [InlineData(6, 2, 3)]
+    [InlineData(5, 5, 1)]
+    public void Dividir_InserindoNum1Num2_DeveRetornarQuocienteDeNum1ENum2(int num1, int num2, int resultadoEsperado)
+    {
+        // Act
+       double resultadoAtual = _calc.Dividir(num1,num2);
+
+       // Assert
+       Assert.Equal(resultadoEsperado, resultadoAtual);
+
+    }
+
+
+    [Fact]
+    public void Dividir_Inserindo3e0_DeveRetornarException()
+    {
+        // Act
+       double resultadoAtual = _calc.Dividir(3,0);
+
+       // Assert
+       Assert.Throws<DivideByZeroException>(
+        () => _calc.Dividir(3,0));
 
     }
 }
