@@ -66,14 +66,10 @@ public class UnitTest1
 
 
     [Fact]
-    public void Dividir_Inserindo3e0_DeveRetornarException()
+    public void Dividir3Por0_DeveRetornarException()
     {
-        // Act
-       double resultadoAtual = _calc.Dividir(3,0);
-
        // Assert
-       Assert.Throws<DivideByZeroException>(
-        () => _calc.Dividir(3,0));
+       Assert.Throws<DivideByZeroException>(() => _calc.Dividir(3,0));
 
     }
 
