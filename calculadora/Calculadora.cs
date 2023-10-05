@@ -10,9 +10,24 @@ namespace calculadora
 {
     public class Calculadora
     {
-        public void Somar()
+        public int Somar(int num1, int num2)
         {
-            Console.WriteLine("");
+            return 0;
+        }
+
+        public int Subtrair(int num1, int num2)
+        {
+            return 0;
+        }
+
+        public int Multiplicar(int num1, int num2)
+        {
+            return 0;
+        }
+
+        public double Dividir(int num1, int num2)
+        {
+            return 0.00;
         }
         
     }   
