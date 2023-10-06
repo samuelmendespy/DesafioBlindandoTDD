@@ -77,12 +77,13 @@ public class UnitTest1
     public void Historico_InserindoStrings_DeveRetornarUltimas3Strings()
     {
         // Act
-        List<string> resultadoAtual = _calc.Historico();
 
         _calc.Somar(1, 2);
         _calc.Somar(3, 5);
         _calc.Somar(1, 6);
         _calc.Somar(2, 7);
+        _calc.Somar(4, 7);
+        List<string> resultadoAtual = _calc.Historico();
 
 
        // Assert

@@ -50,7 +50,7 @@ namespace calculadora
         public List<string> Historico()
         {
             // Deixa os 3 primeiros itens da lista e remove os demais
-            listaHistorico.RemoveRange(3, listaHistorico.Count);
+            listaHistorico.RemoveRange(3, listaHistorico.Count-3);
             return listaHistorico;
         }
         
