@@ -11,26 +11,28 @@ namespace calculadora
     public class Calculadora
     {
         private List<string> listaHistorico;
+        private string _data;
 
-        public Calculadora()
+        public Calculadora(string data)
         {
             listaHistorico = new List<string>();
+            _data = data;
         }
         public int Somar(int num1, int num2)
         {
-            listaHistorico.Insert(0, $"Soma {num1} + {num2}");
+            listaHistorico.Insert(0, $"Soma {num1} + {num2} - Data : {_data}");
             return num1 + num2;
         }
 
         public int Subtrair(int num1, int num2)
         {
-            listaHistorico.Insert(0, $"Subtração {num1} * {num2}");
+            listaHistorico.Insert(0, $"Subtração {num1} * {num2} - Data : {_data}");
             return num1 - num2;
         }
 
         public int Multiplicar(int num1, int num2)
         {
-            listaHistorico.Insert(0, $"Multiplicação {num1} * {num2}");
+            listaHistorico.Insert(0, $"Multiplicação {num1} * {num2} - Data {_data}");
             return num1 * num2;
         }
 
@@ -38,7 +40,7 @@ namespace calculadora
         {
             try
             {
-            listaHistorico.Insert(0, $"Divisão {num1} / {num2}");
+            listaHistorico.Insert(0, $"Divisão {num1} / {num2} - Data {_data}");
             return num1/num2;
             }
             catch (DivideByZeroException ex)
